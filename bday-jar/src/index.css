@@ -1,0 +1,68 @@
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #d6c9b6;
+}
+div {
+  display: grid;
+  place-items: center;
+}
+img {
+  margin-bottom: 1.6rem;
+  width: 300px;
+  @media (min-width: 500px) {
+    width: 400px;
+    margin-bottom: 3rem;
+  }
+}
+h1 {
+  font-family: "Rye", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1, p {
+  text-align: center;
+}
+.description {
+  @media (max-width: 500px) {
+    margin: 0;
+  }
+}
+.note {
+  font-family: "Special Elite", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.note-container {
+  background-color: antiquewhite;
+  border: solid black 1px;
+  border-radius: 5px;
+  position: absolute;
+  width: 80%;
+  padding: 10px;
+  @media (min-width: 500px){
+    width: 40%;
+  }
+
+}
+p {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+button {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  &:hover{
+    border: none;
+  }
+
+}
