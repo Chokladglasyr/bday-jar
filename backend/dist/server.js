@@ -48,7 +48,8 @@ dotenv_1.default.config();
 var app = (0, fastify_1.default)();
 app.register(cors_1.default, {
     origin: [
-        "http://localhost:5173"
+        "http://localhost:5173",
+        "https://benjamins-burk.vercel.app"
     ],
 });
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
