@@ -45,8 +45,11 @@ var MongoConnection = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(process.env.MONGO_URL);
                         if (!!this.dbClient) return [3 /*break*/, 2];
+                        if (!process.env.MONGO_URL) {
+                            console.error("DB URL missing");
+                            throw new Error("DB URL missing");
+                        }
                         this.dbClient = new mongodb_1.MongoClient("".concat(process.env.MONGO_URL));
                         return [4 /*yield*/, this.dbClient.connect()];
                     case 1:
