@@ -9,6 +9,8 @@ export const app = fastify();
 
 app.register(fastifyCors, {
   origin: ["http://localhost:5173", "https://benjamins-burk.vercel.app"],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
 });
 
 const start = async () => {
