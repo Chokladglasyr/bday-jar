@@ -39,18 +39,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.app = void 0;
 var fastify_1 = __importDefault(require("fastify"));
 var noteController_1 = require("./noteController");
 var dotenv_1 = __importDefault(require("dotenv"));
 var db_1 = __importDefault(require("./db"));
 var cors_1 = __importDefault(require("@fastify/cors"));
 dotenv_1.default.config();
-var app = (0, fastify_1.default)();
-app.register(cors_1.default, {
-    origin: [
-        "http://localhost:5173",
-        "https://benjamins-burk.vercel.app"
-    ],
+exports.app = (0, fastify_1.default)();
+exports.app.register(cors_1.default, {
+    origin: ["http://localhost:5173", "https://benjamins-burk.vercel.app"],
 });
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
     var PORT, err_1;
@@ -62,25 +60,44 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 1:
                 _a.sent();
                 PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
-                app.post('/note', noteController_1.createNote);
-                app.get('/notes', noteController_1.getAllNotes);
-                app.get('/', function (req, reply) { return __awaiter(void 0, void 0, void 0, function () {
+                exports.app.post("/note", noteController_1.createNote);
+                exports.app.get("/notes", noteController_1.getAllNotes);
+                exports.app.get("/", function (req, reply) { return __awaiter(void 0, void 0, void 0, function () {
                     return __generator(this, function (_a) {
-                        return [2 /*return*/, { hello: 'world' }];
+                        return [2 /*return*/, { hello: "world" }];
                     });
                 }); });
-                return [4 /*yield*/, app.listen({ port: PORT, host: '0.0.0.0' })];
+                return [4 /*yield*/, exports.app.listen({ port: PORT, host: '0.0.0.0' })];
             case 2:
                 _a.sent();
                 console.log("Server is listening at port ".concat(PORT));
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _a.sent();
-                console.error("failed to start server");
+                console.error("failed to start server: ", err_1);
                 process.exit(1);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
+setInterval(function () { return __awaiter(void 0, void 0, void 0, function () {
+    var res, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, fetch("https://bday-jar.onrender.com")];
+            case 1:
+                res = _a.sent();
+                console.log("Self ping OK: ".concat(res.status));
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error("Could not self ping:", error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }, 14 * 60 * 1000);
 start();

@@ -10,10 +10,10 @@ export const app = fastify();
 app.register(fastifyCors, {
   origin: ["http://localhost:5173", "https://benjamins-burk.vercel.app"],
 });
-console.log("hej")
+
 
 const start = async () => {
-    console.log("hej")
+
   try {
     await MongoConnection.getDbClient();
     const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
