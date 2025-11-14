@@ -48,10 +48,7 @@ var cors_1 = __importDefault(require("@fastify/cors"));
 dotenv_1.default.config();
 exports.app = (0, fastify_1.default)();
 exports.app.register(cors_1.default, {
-    origin: [
-        "http://localhost:5173",
-        "https://benjamins-burk.vercel.app"
-    ],
+    origin: ["http://localhost:5173", "https://benjamins-burk.vercel.app"],
 });
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
     var PORT, err_1;
@@ -63,14 +60,14 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 1:
                 _a.sent();
                 PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
-                exports.app.post('/note', noteController_1.createNote);
-                exports.app.get('/notes', noteController_1.getAllNotes);
-                exports.app.get('/', function (req, reply) { return __awaiter(void 0, void 0, void 0, function () {
+                exports.app.post("/note", noteController_1.createNote);
+                exports.app.get("/notes", noteController_1.getAllNotes);
+                exports.app.get("/", function (req, reply) { return __awaiter(void 0, void 0, void 0, function () {
                     return __generator(this, function (_a) {
-                        return [2 /*return*/, { hello: 'world' }];
+                        return [2 /*return*/, { hello: "world" }];
                     });
                 }); });
-                return [4 /*yield*/, exports.app.listen({ port: PORT })];
+                return [4 /*yield*/, exports.app.listen({ port: PORT, host: '0.0.0.0' })];
             case 2:
                 _a.sent();
                 console.log("Server is listening at port ".concat(PORT));
