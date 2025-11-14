@@ -7,7 +7,7 @@ import fastifyCors from '@fastify/cors';
 dotenv.config();
 
 
-const app = fastify()
+export const app = fastify()
 
 app.register(fastifyCors, {
     origin: [
