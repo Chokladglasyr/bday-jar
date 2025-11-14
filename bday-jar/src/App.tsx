@@ -7,6 +7,8 @@ type Note = {
   text: string;
 };
 function App() {
+  // const baseURL = "http://localhost:3000"
+  const baseURL = "https://bday-jar.onrender.com"
   const [randomNote, setRandomNote] = useState<Note | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [notes, setNotes] = useState([]);
@@ -32,7 +34,7 @@ function App() {
     }
     async function getNotes() {
       try {
-        const res = await fetch("http://localhost:3000/notes");
+        const res = await fetch(`${baseURL}/notes`);
         if (!res.ok) throw new Error("Error fetching");
         const data = await res.json();
         setNotes(data.notes);
@@ -51,7 +53,7 @@ function App() {
   const createNote = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/note", {
+      const res = await fetch(`${baseURL}/note`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData }),
