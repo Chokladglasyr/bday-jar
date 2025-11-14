@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true, //hjälper kompatibilitet mellan commonjs och esmodules
+    "skipLibCheck": true, //ignorerar att validera typer i våra installerade dependencies
+    "forceConsistentCasingInFileNames": true, 
+  }
+}

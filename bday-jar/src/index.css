@@ -66,3 +66,13 @@ button {
   }
 
 }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  textarea{
+    border-radius: 10px;
+    padding: 1rem;
+  }
+}
