@@ -70,7 +70,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                         return [2 /*return*/, { hello: 'world' }];
                     });
                 }); });
-                return [4 /*yield*/, exports.app.listen({ port: PORT, host: '0.0.0.0' })];
+                return [4 /*yield*/, exports.app.listen({ port: PORT })];
             case 2:
                 _a.sent();
                 console.log("Server is listening at port ".concat(PORT));
@@ -84,4 +84,23 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
         }
     });
 }); };
+setInterval(function () { return __awaiter(void 0, void 0, void 0, function () {
+    var res, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, fetch("https://bday-jar.onrender.com")];
+            case 1:
+                res = _a.sent();
+                console.log("Self ping OK: ".concat(res.status));
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error("Could not self ping:", error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }, 14 * 60 * 1000);
 start();

@@ -26,11 +26,24 @@ try {    await MongoConnection.getDbClient();
         return {hello: 'world'}
     })
 
-    await app.listen({port: PORT, host: '0.0.0.0'})
+    await app.listen({port: PORT})
     console.log(`Server is listening at port ${PORT}`)
 } catch( err){
     console.error("failed to start server")
     process.exit(1);
 }
 }
+
+setInterval(
+  async () => {
+    try {
+      const res = await fetch("https://bday-jar.onrender.com");
+      console.log(`Self ping OK: ${res.status}`);
+    } catch (error) {
+      console.error("Could not self ping:", error);
+    }
+  },
+  14 * 60 * 1000
+);
+
 start()
