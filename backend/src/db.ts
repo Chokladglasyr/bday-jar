@@ -7,6 +7,7 @@ class MongoConnection {
     private constructor() {}
     static async getDbClient(): Promise<MongoClient> {
         if(!this.dbClient){
+            console.log(process.env.MONGO_URL)
             this.dbClient = new MongoClient(`${process.env.MONGO_URL}`)
             await this.dbClient.connect()
             console.log("DB running")

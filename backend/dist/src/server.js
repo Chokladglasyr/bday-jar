@@ -56,6 +56,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
+                console.log("hej");
                 return [4 /*yield*/, db_1.default.getDbClient()];
             case 1:
                 _a.sent();

@@ -46,14 +46,14 @@ var MongoConnection = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!!this.dbClient) return [3 /*break*/, 2];
-                        this.dbClient = new mongodb_1.MongoClient("".concat(process.env.MONGO_URL, "}"));
+                        console.log(process.env.MONGO_URL);
+                        this.dbClient = new mongodb_1.MongoClient("".concat(process.env.MONGO_URL));
                         return [4 /*yield*/, this.dbClient.connect()];
                     case 1:
                         _a.sent();
-                        _a.label = 2;
-                    case 2:
                         console.log("DB running");
-                        return [2 /*return*/, this.dbClient];
+                        _a.label = 2;
+                    case 2: return [2 /*return*/, this.dbClient];
                 }
             });
         });

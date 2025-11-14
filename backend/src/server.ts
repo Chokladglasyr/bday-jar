@@ -13,6 +13,7 @@ app.register(fastifyCors, {
 
 const start = async () => {
   try {
+    console.log("hej")
     await MongoConnection.getDbClient();
     const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
     app.post("/note", createNote);
