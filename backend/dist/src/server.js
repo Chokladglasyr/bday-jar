@@ -77,7 +77,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _a.sent();
-                console.error("failed to start server");
+                console.error("failed to start server: ", err_1);
                 process.exit(1);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];

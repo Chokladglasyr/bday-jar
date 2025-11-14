@@ -29,7 +29,7 @@ try {    await MongoConnection.getDbClient();
     await app.listen({port: PORT})
     console.log(`Server is listening at port ${PORT}`)
 } catch( err){
-    console.error("failed to start server")
+    console.error("failed to start server: ", err)
     process.exit(1);
 }
 }
