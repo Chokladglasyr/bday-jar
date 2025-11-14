@@ -11,9 +11,7 @@ app.register(fastifyCors, {
   origin: ["http://localhost:5173", "https://benjamins-burk.vercel.app"],
 });
 
-
 const start = async () => {
-
   try {
     await MongoConnection.getDbClient();
     const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
@@ -23,7 +21,7 @@ const start = async () => {
       return { hello: "world" };
     });
 
-    await app.listen({ port: PORT, host: '0.0.0.0' });
+    await app.listen({ port: PORT, host: "0.0.0.0" });
     console.log(`Server is listening at port ${PORT}`);
   } catch (err) {
     console.error("failed to start server: ", err);

@@ -67,7 +67,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                         return [2 /*return*/, { hello: "world" }];
                     });
                 }); });
-                return [4 /*yield*/, exports.app.listen({ port: PORT, host: '0.0.0.0' })];
+                return [4 /*yield*/, exports.app.listen({ port: PORT, host: "0.0.0.0" })];
             case 2:
                 _a.sent();
                 console.log("Server is listening at port ".concat(PORT));
